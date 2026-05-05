@@ -1,0 +1,149 @@
+/* Main content */
+/* Main content - Centrado Absoluto */
+.scene {
+  position: absolute; /* Cambiado de relative a absolute */
+  inset: 0;           /* Ocupa todo el ancho y alto */
+  z-index: 10;
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; /* Esto es lo que centra verticalmente */
+  text-align: center;
+  gap: 0;
+  padding: 20px;
+}
+
+/* Eyebrow */
+.eyebrow {
+  font-size:.6rem;
+  letter-spacing:.5em;
+  text-transform:uppercase;
+  color: rgba(201,145,106,0.7);
+  margin-bottom:28px;
+  opacity:0;
+  animation: fadeUp .9s ease .4s both;
+}
+
+/* Names */
+.names {
+  font-family:'Pinyon Script', cursive;
+  font-size: clamp(4.5rem, 15vw, 9rem);
+  line-height: 1.05;
+  color: #f0e6d2;
+  text-shadow:
+    0 0 80px rgba(201,145,106,0.25),
+    0 0 180px rgba(196,112,128,0.12);
+  opacity:0;
+  animation: fadeUp 1.4s ease .65s both;
+}
+
+/* Ornament */
+.ornament {
+  display:flex; align-items:center; gap:18px;
+  margin: 26px 0 24px;
+  opacity:0;
+  animation: fadeUp .8s ease 1.2s both;
+}
+.orn-line {
+  height:1px; width:55px;
+  background: linear-gradient(90deg, transparent, rgba(201,145,106,0.55));
+}
+.orn-line:last-child {
+  background: linear-gradient(90deg, rgba(201,145,106,0.55), transparent);
+}
+.orn-gem {
+  width:5px; height:5px;
+  border:1px solid rgba(201,145,106,0.7);
+  transform:rotate(45deg);
+}
+
+/* Tagline */
+.tagline {
+  font-family:'Cormorant Garamond', serif;
+  font-style:italic;
+  font-size: clamp(1rem, 2.8vw, 1.3rem);
+  color: rgba(240,230,210,0.5);
+  letter-spacing:.07em;
+  line-height:1.7;
+  max-width:360px;
+  margin-bottom:50px;
+  opacity:0;
+  animation: fadeUp .9s ease 1.4s both;
+}
+
+/* Button */
+.btn-wrap {
+  opacity:0;
+  animation: fadeUp 1s ease 1.8s both;
+}
+
+.btn {
+  position:relative;
+  background:transparent;
+  border:none;
+  cursor:none;
+  padding:0;
+}
+
+.btn-body {
+  display:flex; align-items:center; gap:16px;
+  padding:16px 42px;
+  border:1px solid rgba(201,145,106,0.28);
+  border-radius:2px;
+  position:relative; overflow:hidden;
+  transition: border-color .4s, box-shadow .4s;
+}
+
+.btn-body::before, .btn-body::after {
+  content:''; position:absolute;
+  width:10px; height:10px;
+  border-color: rgba(201,145,106,0.65);
+  border-style:solid;
+  transition: width .4s, height .4s;
+}
+.btn-body::before { top:-1px; left:-1px; border-width:1px 0 0 1px; }
+.btn-body::after { bottom:-1px; right:-1px; border-width:0 1px 1px 0; }
+
+.btn:hover .btn-body::before,
+.btn:hover .btn-body::after { width:18px; height:18px; }
+
+.btn-sweep {
+  position:absolute; inset:0;
+  background:linear-gradient(105deg, transparent 30%, rgba(201,145,106,0.1) 50%, transparent 70%);
+  transform:translateX(-110%);
+  transition:transform .65s ease;
+  pointer-events:none;
+}
+.btn:hover .btn-sweep { transform:translateX(110%); }
+
+.btn:hover .btn-body {
+  border-color:rgba(201,145,106,0.65);
+  box-shadow:0 0 40px rgba(201,145,106,0.1), inset 0 0 30px rgba(201,145,106,0.04);
+}
+
+.btn-text {
+  font-family:'Cormorant Garamond', serif;
+  font-style:italic;
+  font-size:.82rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color: rgba(240,230,210,0.8);
+  transition:color .35s;
+}
+.btn:hover .btn-text { color: #dba878; }
+
+.btn-star {
+  font-size:.85rem;
+  color:rgba(201,145,106,0.75);
+  transition: transform .45s cubic-bezier(.34,1.56,.64,1), opacity .3s;
+}
+.btn:hover .btn-star { transform:rotate(72deg); opacity:1; }
+
+/* Transitions */
+body.leaving { animation: leaveOut .7s ease forwards; }
+@keyframes leaveOut { to { opacity:0; transform:scale(1.04); } }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(18px); }
+  to   { opacity:1; transform:translateY(0); }
+}

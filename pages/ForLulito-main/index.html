@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Lulú ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<a href="../../planetarium.html" class="btn-back-nav">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7" />
+    </svg>
+    <span>PLANETARIO</span>
+</a>
+
+<body>
+    <!-- Control de Música Global -->
+    <div id="music-control" class="music-player-mini">
+        <button id="music-toggle" class="btn-music">
+            <span id="music-icon">🎵</span>
+        </button>
+    </div>
+
+    <!-- Velo de transición -->
+    <div id="page-transition-overlay"></div>
+    <div class="night"></div>
+
+    <div id="main-content" class="container">
+        <!-- HEADER INICIAL -->
+        <header class="header-section" id="loveStatementSection">
+            <div class="glass-card intro-card">
+                <img src="https://sweezy-cursors.com/wp-content/uploads/cursor/milk-amp-mocha-bear-love/milk-mocha-bear-love-custom-cursor.png"
+                    alt="Ositos" class="bear-image">
+                <h1 class="main-title">Hola Lulito</h1>
+                <p class="subtitle">Tú sabes que me gustas mucho... por eso quería que leyeras esto:</p>
+                <br>
+                <button id="readLetterButton" class="btn-main">LEER CARTA</button>
+            </div>
+        </header>
+
+        <!-- SECCIÓN DE FOTOS (Se muestran al inicio o con la carta) -->
+        <section class="photo-section" id="photoSection">
+            <div class="photo-card"><img src="imagen_4.jpeg" alt="Foto 1">
+                <p>Es tan linda!</p>
+            </div>
+            <div class="photo-card"><img src="imagen_2.jpeg" alt="Foto 2">
+                <p>Hacemos bonita pareja</p>
+            </div>
+            <div class="photo-card"><img src="imagen_3.jpeg" alt="Foto 3">
+                <p>¿Debería besarte?</p>
+            </div>
+        </section>
+
+        <!-- LA CARTA -->
+        <section class="letter-section hidden" id="letterContent">
+            <div class="glass-card letter-box">
+                <h2 class="letter-title">Mi Querida Lulú,</h2>
+                <div class="letter-body">
+                    <p>Desde que llegaste a mi vida, todo empezó a tomar un sentido distinto. No fue solo una
+                        coincidencia, fue como si Dios, en su perfecto tiempo, hubiera decidido cruzar nuestros caminos
+                        y regalarme a alguien que no sabía que necesitaba tanto… pero que hoy no puedo imaginar no
+                        tener.</p>
+
+                    <p>Contigo aprendí que el amor no solo se siente, también se construye en los pequeños momentos: en
+                        una conversación sencilla, en una sonrisa inesperada, en tu forma tan especial de preocuparte
+                        por los demás. Tienes una manera única de ver el mundo, de sentirlo y de vivirlo… y eso es algo
+                        que admiro profundamente.</p>
+
+                    <p>Me encanta cómo amas, cómo cuidas, cómo das lo mejor de ti incluso cuando no es fácil. Tu corazón
+                        es de las cosas más bonitas que he conocido, y sin darte cuenta, me inspiras a ser mejor persona
+                        cada día.</p>
+
+                    <p>No somos perfectos, y quizás aún tenemos mucho que aprender, pero si algo tengo claro es que
+                        quiero seguir caminando contigo. Quiero estar a tu lado en cada proceso, en cada sueño que
+                        quieras cumplir, apoyarte cuando lo necesites y celebrar cada logro como si fuera propio.</p>
+
+                    <p>No quiero que lo nuestro sea algo pasajero o solo un “nos tenemos cariño”… quiero que sea una
+                        historia real, sincera, con propósito. Una historia donde crezcamos juntos, donde aprendamos a
+                        amarnos mejor con el tiempo y donde siempre elijamos quedarnos, incluso en los días difíciles.
+                    </p>
+
+                    <p>Gracias por existir, por llegar a mi vida y por ser exactamente como eres. No cambiaría nada de
+                        ti, porque así, tal cual eres, te has convertido en alguien muy especial para mí.</p>
+
+                    <p class="signature">- Con todo mi amor, Itito 🤍</p>
+                </div>
+                <button id="showQuestionButton" class="btn-main">CONTINUAR</button>
+            </div>
+        </section>
+
+        <!-- PREGUNTA FINAL -->
+        <section class="question-section hidden" id="finalQuestionSection">
+            <h2 class="final-question">Entonces... <br> <b>¿Quieres ser mi novia?</b></h2>
+            <div class="button-group" id="buttonControls">
+                <button id="yesButton" class="btn-main btn-yes">SÍ</button>
+                <button id="noButton" class="btn-no">No</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- MODAL DE CONFIRMACIÓN -->
+    <div id="modalOverlay" class="hidden">
+        <div class="glass-card modal-content">
+            <h3>¿ESTÁS SEGURA?</h3>
+            <p>Piénsalo bien... (di que sí ❤️)</p>
+            <br>
+            <button id="confirmButton" class="btn-main">CONFIRMAR</button>
+        </div>
+    </div>
+
+    <!-- PANTALLA FINAL -->
+    <div id="confirmationScreen" class="hidden">
+
+        <div class="celebration-container">
+
+            <div class="glass-card celebration-card">
+
+                <!-- GIF de Tenor correctamente embebido -->
+                <div class="tenor-gif-embed" data-postid="2154087708177230584" data-share-method="host"
+                    data-aspect-ratio="1.52893" data-width="100%">
+                </div>
+
+                <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+                <h1 class="celebration-title">¡¡SÍ!!</h1>
+
+                <div class="divider-red"></div>
+
+                <h2 class="celebration-subtitle">
+                    Eres lo mejor que me ha pasado. <br>
+                    <span>Te amo mucho, Lulú ❤️</span>
+                </h2>
+
+                <br>
+
+                <a href="index.html" class="btn-main-red" style="font-size: 0.7rem;">
+                    VOLVER AL INICIO
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
