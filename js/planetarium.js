@@ -200,7 +200,7 @@ const PLANETS = [
   {
     label: '🌙', name: 'Otro Video para Ti',
     desc: 'Otro video especial · haz clic ♡',
-    externalUrl: 'https://youtu.be/TU_SEGUNDA_URL',  // ← reemplaza con tu URL
+    externalUrl: 'https://youtu.be/kYD7WPwMDxg',  // ← reemplaza con tu URL
     orbitFrac: .35, size: 9, speed: .00070, angle: 0.9,
     hi: '#e8e2d8', mid: '#b8b2a8', shad: '#787270', edge: '#383230',
     band: 'rgba(30,25,20,.10)', atm: 'rgba(220,215,205,.18)',
