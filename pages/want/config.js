@@ -4,8 +4,8 @@ const CONFIG = {
     pageTitle: "¿Quieres ser mi San Valentín? 💗",
 
     floatingEmojis: {
-        hearts: ['💜', '🤍', '✨', '☁️', '🌸'],  
-        bears: ['🧸', '🐻'] 
+        hearts: ['💗', '✨', '🌸', '💖', '⭐', '🌟'],
+        bears:  ['🧸', '💝']
     },
 
     questions: {
@@ -40,11 +40,11 @@ const CONFIG = {
     },
 
     colors: {
-        backgroundStart: "#ffffff",      // Blanco
-        backgroundEnd: "#f3e5f5",        // Lavanda muy clarito
-        buttonBackground: "#b39ddb",     // Lila para los botones
-        buttonHover: "#9575cd",          // Morado suave al pasar el mouse
-        textColor: "#673ab7"             // Morado oscuro para lectura clara
+        backgroundStart: "#06050c",      // Espacio oscuro del planetario
+        backgroundEnd:   "#1a0515",      // Oscuro fucsia-profundo
+        buttonBackground: "#b04888",     // Color mid del planeta 14 Feb
+        buttonHover:      "#d880b8",     // Color hi del planeta 14 Feb
+        textColor:        "#f0e6d2"      // Crema del planetario
     },
 
     animations: {
@@ -55,12 +55,7 @@ const CONFIG = {
     },
 
     music: {
-        enabled: true,                     
-        autoplay: true,                    
-        musicUrl: "Carlos Rivera - Te Esperaba (Lyric Video).mp3", 
-        startText: "🎵",        
-        stopText: "🔇",         
-        volume: 0.5                        
+        enabled: false
     }
 };
 

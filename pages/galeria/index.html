@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuestros Recuerdos ✦</title>
+  <link rel="icon" type="image/png" href="Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <a href="../../planetarium.html" class="btn-back" onclick="if(window.parent!==window){window.parent.postMessage('closeOverlay','*');return false;}">
+    <svg height="14" width="14" fill="none" viewBox="0 0 24 24" stroke-width="1.8">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+    <span>Planetario</span>
+  </a>
+
+  <!-- Intro -->
+  <div id="gallery-intro">
+    <h1>Nuestros Recuerdos</h1>
+    <p>Cada imagen guarda un momento que siempre voy a querer recordar · Toca una foto para leer su historia</p>
+  </div>
+
+  <!-- Grilla (generada por JS) -->
+  <div id="gallery-grid"></div>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <button id="lb-close">✕</button>
+    <div id="lightbox-inner">
+      <div id="lightbox-img-wrap">
+        <img id="lightbox-img" src="" alt="" />
+      </div>
+      <div id="lightbox-info">
+        <span id="lb-counter"></span>
+        <h2 id="lb-title"></h2>
+        <p id="lb-desc"></p>
+        <div id="lb-nav">
+          <button class="lb-nav-btn" id="lb-prev">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 18L9 12l6-6"/>
+            </svg>
+          </button>
+          <button class="lb-nav-btn" id="lb-next">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="photos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

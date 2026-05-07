@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pupiletras para Lulú ✦</title>
+  <link rel="icon" type="image/png" href="Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- Cabecera -->
+    <div id="game-header">
+
+      <a href="../../planetarium.html" class="btn-back" onclick="if(window.parent!==window){window.parent.postMessage('closeOverlay','*');return false;}">
+        <svg height="14" width="14" fill="none" viewBox="0 0 24 24" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span>Planetario</span>
+      </a>
+
+      <div>
+        <span id="set-number">Pupiletras 1 de 5</span>
+        <div id="set-title">Te Amo</div>
+        <span id="word-count">0 / 0</span>
+      </div>
+
+      <div id="game-controls">
+        <button class="ctrl-btn hidden" id="btn-next">Siguiente →</button>
+      </div>
+
+    </div>
+
+    <!-- Instrucción -->
+    <div id="hint-bar">
+      Haz clic en la primera letra · luego en la última · ¡Las palabras van en cualquier dirección!
+    </div>
+
+    <!-- Área de juego -->
+    <div id="game-area">
+
+      <!-- Cuadrícula -->
+      <div id="grid-wrap">
+        <div id="pw-grid"></div>
+      </div>
+
+      <!-- Panel de palabras -->
+      <div id="words-panel">
+        <h3>Palabras a encontrar</h3>
+        <ul id="word-list"></ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Celebración -->
+  <div id="celebration" class="hidden">
+    <div class="celeb-card">
+      <div id="celeb-title">¡Lo lograste! 💜</div>
+      <div id="celeb-msg"></div>
+      <button id="btn-next-pw">Siguiente pupiletras →</button>
+    </div>
+  </div>
+
+  <!-- Pantalla final (todos completados) -->
+  <div id="final-screen" class="hidden">
+    <div class="celeb-card">
+      <div id="celeb-title" style="margin-bottom:20px;">✦</div>
+      <div id="final-msg" style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:rgba(240,230,210,.9);line-height:1.8;margin-bottom:28px;"></div>
+      <button id="btn-final-restart">Volver a jugar ↺</button>
+    </div>
+  </div>
+
+  <!-- Partículas -->
+  <div id="particles"></div>
+
+  <script src="words.js"></script>
+  <script src="engine.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

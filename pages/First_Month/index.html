@@ -6,7 +6,7 @@
     <meta name="description" content="Una página especial para nuestro aniversario" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nuestro mes — El Primer Capítulo 🩵</title>
-
+    <link rel="icon" type="image/png" href="Logo.png">
     <!-- Fuentes unificadas con el Universo -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,7 +21,7 @@
 
     <div id="home-view">
 
-        <a href="../../planetarium.html" class="exit-planet-btn">
+        <a href="../../planetarium.html" class="exit-planet-btn" onclick="if(window.parent!==window){window.parent.postMessage('closeOverlay','*');return false;}">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
@@ -31,7 +31,7 @@
 
         <section class="hero">
             <div class="hero-content">
- 
+
                 <div class="ornament">
                     <div class="orn-line"></div>
                     <div class="orn-gem"></div>
@@ -59,64 +59,64 @@
                 <p class="video-description">Hermosos momentos juntos, que siempre guardaremos en nuestros corazones y
                     un recuerdo único que siempre podremos volver a ver juntos.</p>
 
+                <!-- El div es rellenado por la YouTube IFrame API -->
                 <div class="video-wrapper">
-                    <iframe src="https://youtu.be/1MHyQLLZ2yk" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
+                    <div id="yt-player"></div>
                 </div>
             </div>
         </section>
 
         <section class="gallery-section">
             <div class="container">
-                <h1 class="gallery-title luxury-title">Nuestros Recuerdos</h1>
+                <h1 class="gallery-title luxury-title">Nuestros Mejores Momentos 🩵</h1>
+
                 <div class="carousel-container">
                     <div class="carousel">
+
+                        <!-- TRACK -->
                         <div class="carousel-track" id="carousel-track">
-                            <div class="carousel-slide"><img src="photos/IMG_4716.jpg" alt="Record 1" loading="lazy" />
+
+                            <div class="carousel-slide">
+                                <img src="https://ik.imagekit.io/kafe/Proyecto_GF/IMG_4716.jpg?updatedAt=1778117537174"
+                                    alt="Record 1" loading="lazy">
                             </div>
-                            <div class="carousel-slide"><img src="photos/IMG_4813.jpg" alt="Record 2" loading="lazy" />
+
+                            <div class="carousel-slide">
+                                <img src="https://ik.imagekit.io/kafe/Proyecto_GF/IMG_4813.jpg?updatedAt=1778117537127"
+                                    alt="Record 2" loading="lazy">
                             </div>
-                            <div class="carousel-slide"><img src="photos/IMG_4917.jpg" alt="Record 3" loading="lazy" />
+
+                            <div class="carousel-slide">
+                                <img src="https://ik.imagekit.io/kafe/Proyecto_GF/IMG_5200.jpg?updatedAt=1778117537186"
+                                    alt="Record 3" loading="lazy">
                             </div>
-                            <div class="carousel-slide"><img src="photos/IMG_5200.jpg" alt="Record 4" loading="lazy" />
+
+                            <div class="carousel-slide">
+                                <img src="https://ik.imagekit.io/kafe/Proyecto_GF/IMG_5558.jpg?updatedAt=1778117537181"
+                                    alt="Record 4" loading="lazy">
                             </div>
-                            <div class="carousel-slide"><img src="photos/IMG_5558.jpg" alt="Record 5" loading="lazy" />
+
+                            <div class="carousel-slide">
+                                <img src="https://ik.imagekit.io/kafe/Proyecto_GF/IMG_5710.jpg?updatedAt=1778117536952"
+                                    alt="Record 5" loading="lazy">
                             </div>
-                            <div class="carousel-slide"><img src="photos/IMG_5710.jpg" alt="Record 6" loading="lazy" />
-                            </div>
+
                         </div>
 
+                        <!-- BOTONES -->
                         <button class="carousel-btn carousel-btn-prev" id="carouselPrevBtn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </svg>
+                            ❮
                         </button>
 
                         <button class="carousel-btn carousel-btn-next" id="carouselNextBtn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </svg>
+                            ❯
                         </button>
+
                     </div>
 
-                    <div class="carousel-dots" id="carousel-dots">
-                        <button class="dot active" data-slide="0"></button>
-                        <button class="dot" data-slide="1"></button>
-                        <button class="dot" data-slide="2"></button>
-                        <button class="dot" data-slide="3"></button>
-                        <button class="dot" data-slide="4"></button>
-                        <button class="dot" data-slide="5"></button>
-                    </div>
+                    <!-- DOTS -->
+                    <div class="carousel-dots" id="carousel-dots"></div>
 
-                    <button id="openGalleryBtn" class="cta-button fade-in-up delay-600">
-                        Ver la Galería Completa 🩵
-                    </button>
                 </div>
             </div>
         </section>
@@ -160,240 +160,45 @@
         </section>
     </div>
 
-    <div id="gallery-view" class="hidden">
-        <section class="full-gallery-section revelar">
-            <div class="container">
-                <button id="backToHomeBtn" class="modern-back-btn">
-                    <span>VOLVER AL CAPÍTULO</span>
-                </button>
-
-                <h1 class="gallery-title">Nuestros Recuerdos</h1>
-                <!-- Texto mejorado -->
-                <p class="gallery-instruction">Cada imagen guarda un fragmento de nuestra historia. <br><span>Toca una
-                        fotografía para revelar el recuerdo.</span></p>
-
-                <div class="gallery-grid">
-                    <!-- Tarjeta 1 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/first.jpg" alt="Foto 1" /></div>
-                            <div class="flip-card-back">
-                                <h3>Nuestro comienzo</h3>
-                                <p>Sin pensarlo tome la foto, y de pronto se volvio mi favorita. En ella puede ver a una
-                                    persona de la cual podría aprender mucho. Y quien lo diría que terminariamos
-                                    enamorandonos. La más bonita coincidencia.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 2 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/capybara.jpg" alt="Foto 2" /></div>
-                            <div class="flip-card-back">
-                                <h3>Salidas</h3>
-                                <p>Fue una semana en la cual nos vimos todos los días y sin pensarlo aquel día pregunte
-                                    si podía acompañarte y tu respuesta fue si. Pasamos un bonito tiempo y ahí tomamos
-                                    nuestra primera foto juntos, la primera de muchas.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 3 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/polera.jpg" alt="Foto 3" /></div>
-                            <div class="flip-card-back">
-                                <h3>Polera</h3>
-                                <p>Ese día te di mi polera y ese mismo día me di cuenta de lo mucho que empezabas a
-                                    importarme, de como sentía la necesidad de que te abrigaras y luego verte puesto mi
-                                    polera y que te quedaba muy grande, se sentía bonito, te veías muy tierna y bonita.
-                                    Ese día no solo me di cuenta de lo mucho que me importabas sino que quería siempre
-                                    estar ahí para cuidarte.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 4 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/primera_mano.jpg" alt="Foto 4" /></div>
-                            <div class="flip-card-back">
-                                <h3>Emoción</h3>
-                                <p>En aquel momento en el que me sujetaste la mano. Todo se detuvo y solo quería que eso
-                                    durará para siempre, fue algo bonito, algo tierno, el hecho de no querer soltar tu
-                                    mano y como ambos estabamos muy nerviosos era algo único y muy especial, como desde
-                                    ese día siempre buscabamos la mano del otro.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 5 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/picnic.jpg" alt="Foto 5" /></div>
-                            <div class="flip-card-back">
-                                <h3>Picnic</h3>
-                                <p>Ese día fue uno de los mejores. El salir contigo, sentarnos, pintar y compartir de
-                                    ese lindo momento, fue muy especial para mi. Pero lo que lo hizo más especial fue lo
-                                    que paso después de eso. Cuando fuimos con Richard y Anita y durante la compras, la
-                                    carrera que hicimos y el recostarme en tu hombro y poder descansar ahí. Se sentía
-                                    muy real, muy especial, muy nosotros. Te ibas convirtiendo en mi lugar seguro.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 6 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/picnic_2.jpg" alt="Foto 6" /></div>
-                            <div class="flip-card-back">
-                                <h3>Picnic</h3>
-                                <p>Fue la vez en la cual me sentí tan nervioso cuando me abrazaste y tenerte tan cerca,
-                                    que empezaba a pensar que yo también te gustaba.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 7 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/rosas_1.jpg" alt="Foto 7" /></div>
-                            <div class="flip-card-back">
-                                <h3>Rosas</h3>
-                                <p>Tenía la idea de que regalar rosas era algo vergonzoso el caminar por la calle con
-                                    las flores y lo que diría la gente. Pero al pensar que el darte flores, te sacaría
-                                    una sonrisa y te alegraría, cambio mi opinión de camino a entregarte las rosas, solo
-                                    pensaba en como te lo entregaría, si te gustaría, en ese momento solo quería verte y
-                                    entregarte las rosas y ver tu sonrisa, demostrarte que si me importas mucho y que
-                                    quería ser yo quien te regale siempre flores</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 8 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/boda.jpg" alt="Foto 8" /></div>
-                            <div class="flip-card-back">
-                                <h3>Boda</h3>
-                                <p>La boda. Durante todo ese tiempo me fui enamorando de ti, y de como tenías un hermoso
-                                    corazón dispuesto a ayudar, que apesar del cansacio que tenías y te quedabas
-                                    despierta hasta muy tarde, solo para ayudar a otros. Y como todo lo hacías con mucho
-                                    amor y esmero, me iba gustando mucho y yo un chico muyyy enamorado de ti solo quería
-                                    acompañarte en las desveladas, en tus actividades, en todo momento.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 9 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/rosas_2.jpg" alt="Foto 9" /></div>
-                            <div class="flip-card-back">
-                                <h3>Yooooo</h3>
-                                <p>Quería darte una sorpresa, solo por bonita. Te mereces todo lo mejor mi niña hermosa
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 10 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/pequeños.jpg" alt="Foto 10" /></div>
-                            <div class="flip-card-back">
-                                <h3>Nosotros</h3>
-                                <p>Cuando me enviaste esa foto, sentía una emoción muy grande, que lo hayas hecho tu y
-                                    darme cuenta de lo muy feliz que me hacías con cada detalle que tenías conmigo. Mi
-                                    corazón se siente muy alegre contigo a mi lado.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 11 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/IMG_4716.jpg" alt="Foto 11" /></div>
-                            <div class="flip-card-back">
-                                <h3>Pancito</h3>
-                                <p>Recuerdo que le decía indirectamente a Richard que te invitará, porque fue el tiempo
-                                    en el cual no hablamos, pero tenía muchas ganas de verte, e intentaba encontrar una
-                                    excusa para poder verte y compartir contigo.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 12 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/IMG_4917.jpg" alt="Foto 12" /></div>
-                            <div class="flip-card-back">
-                                <h3>Seguridad</h3>
-                                <p>Una de las cosas que quiero, es que te sientas segura cuando estés conmigo, que en mi
-                                    puedas sentirte segura, en paz y que todo esta bien, quiero estar en tus buenos y
-                                    malos momentos, cuidando de ti y apoyandote.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 13 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/IMG_4813.jpg" alt="Foto 13" /></div>
-                            <div class="flip-card-back">
-                                <h3>Tareas</h3>
-                                <p>Quiero ser quien te apoye en todas tus actividades, en cada momento que sea posible,
-                                    poder acompañarte y ser de ayuda para ti.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 14 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/dedos.jpg" alt="Foto 14" /></div>
-                            <div class="flip-card-back">
-                                <h3>Dibujos</h3>
-                                <p>Nuestras manos encajan perfectamente. En ese momento sentí algo tan bonito que no
-                                    necesitaba nada más para ser feliz. Me di cuenta que contigo sería muy feliz y por
-                                    eso quiero un futuro a tu lado que podamos cumplir todas nuestras metas. </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 15 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/playa.jpg" alt="Foto 15" /></div>
-                            <div class="flip-card-back">
-                                <h3>Viaje</h3>
-                                <p>La idea de estar juntos conociendo una ciudad nueva, me parece un increible plan, y
-                                    que mejor si lo hacemos tambien sirviendo al Señor y trabajando en su obra. Lo que
-                                    más deseo es tenerte a mi lado y poder crecer en Dios juntos, siguiendo los planes
-                                    que tiene para nosotros.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 16 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/graduacion.jpg" alt="Foto 16" /></div>
-                            <div class="flip-card-back">
-                                <h3>Graduación</h3>
-                                <p>Fue un hermoso tiempo que pude compartir contigo. En el cual pude conocer a tus papás
-                                    y aumentaron más las ganas de hacer la cosas bien y poder tener un futuro juntos, en
-                                    el cual tus papás puedan confiar en mi. Estoy muy orgulloso de ti y todo lo que
-                                    estas logrando</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 17 -->
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front"><img src="photos/cine.jpg" alt="Foto 17" /></div>
-                            <div class="flip-card-back">
-                                <h3>Juntos Siempre</h3>
-                                <p>Quiero y deseo seguir compartiendo más momentos contigo. Crear más momentos juntos, y
-                                    hermosos recuerdos. Quiero seguir junto a ti en los momentos dificile y en los
-                                    buenos. Quiero luchar y perseverar por nuestra relación tan hermosa. Y que cada día
-                                    me siga enamorando de ti. </p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    </div>
 
     <script src="script.js"></script>
+
+    <!-- YouTube IFrame API: detecta play/pause para sincronizar con el reproductor del planetario -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <style>
+      /* El div generado por la API debe llenar el video-wrapper */
+      .video-wrapper #yt-player,
+      .video-wrapper #yt-player iframe {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        border: none;
+      }
+    </style>
+    <script>
+      var _ytPlayer;
+      var _pausedByVideo = false;
+
+      // Llamado automáticamente por la API cuando está lista
+      function onYouTubeIframeAPIReady() {
+        _ytPlayer = new YT.Player('yt-player', {
+          videoId: '1MHyQLLZ2yk',
+          playerVars: { rel: 0, modestbranding: 1 },
+          events: { onStateChange: _onYTState }
+        });
+      }
+
+      function _onYTState(e) {
+        if (window.parent === window) return; // no está en iframe
+        if (e.data === 1) {
+          // Video reproduciendo → pausar planetario
+          window.parent.postMessage('pauseForVideo', '*');
+        } else if (e.data === 0 || e.data === 2) {
+          // Video parado o terminado → reanudar planetario
+          window.parent.postMessage('resumeAfterVideo', '*');
+        }
+      }
+    </script>
 </body>
 
 </html>

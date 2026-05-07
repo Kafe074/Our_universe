@@ -72,6 +72,24 @@
         }
     }
 
+    // Estrella de constelación (reemplaza el corazón en los blooms)
+    Star = function(spikes, outerR, innerR) {
+        var pts = [];
+        spikes  = spikes  || 5;
+        outerR  = outerR  || 8;
+        innerR  = innerR  || 3.5;
+        for (var i = 0; i < spikes * 2; i++) {
+            var r     = i % 2 === 0 ? outerR : innerR;
+            var angle = (i * Math.PI) / spikes - Math.PI / 2;
+            pts.push(new Point(r * Math.cos(angle), r * Math.sin(angle)));
+        }
+        this.points = pts;
+        this.length = pts.length;
+    }
+    Star.prototype = {
+        get: function(i, scale) { return this.points[i].mul(scale || 1); }
+    }
+
     Seed = function(tree, point, scale, color) {
         this.tree = tree;
 
@@ -122,16 +140,19 @@
         },
         drawHeart: function() {
             var ctx = this.tree.ctx, heart = this.heart;
-            var point = heart.point, color = heart.color, 
-                scale = heart.scale;
+            var point = heart.point, scale = heart.scale;
+            var outerR = 15 * scale, innerR = 7 * scale, spikes = 5;
             ctx.save();
-            ctx.fillStyle = color;
+            ctx.fillStyle = '#e8c070';
+            ctx.shadowColor = 'rgba(232,192,112,1)';
+            ctx.shadowBlur = 28 * scale;
             ctx.translate(point.x, point.y);
             ctx.beginPath();
-            ctx.moveTo(0, 0);
-            for (var i = 0; i < heart.figure.length; i++) {
-                var p = heart.figure.get(i, scale);
-                ctx.lineTo(p.x, -p.y);
+            for (var i = 0; i < spikes * 2; i++) {
+                var r     = i % 2 === 0 ? outerR : innerR;
+                var angle = (i * Math.PI) / spikes - Math.PI / 2;
+                var px = r * Math.cos(angle), py = r * Math.sin(angle);
+                if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
             }
             ctx.closePath();
             ctx.fill();
@@ -152,26 +173,7 @@
             ctx.fill();
             ctx.restore();
         },
-        drawText: function() {
-            var ctx = this.tree.ctx, heart = this.heart;
-            var point = heart.point, color = heart.color, 
-                scale = heart.scale;
-            ctx.save();
-            ctx.strokeStyle = color;
-            ctx.fillStyle = color;
-            ctx.translate(point.x, point.y);
-            ctx.scale(scale, scale);
-            ctx.moveTo(0, 0);
-    	    ctx.lineTo(15, 15);
-    	    ctx.lineTo(60, 15);
-            ctx.stroke();
-
-            ctx.moveTo(0, 0);
-            ctx.scale(0.75, 0.75);
-            ctx.font = "12px 微软雅黑,Verdana"; // 字号肿么没有用? (ˉ(∞)ˉ)
-            ctx.fillText("Come Baby", 23, 10);
-            ctx.restore();
-        },
+        drawText: function() { /* las estrellas hablan solas */ },
         clear: function() {
             var ctx = this.tree.ctx, cirle = this.cirle;
             var point = cirle.point, scale = cirle.scale, radius = 26;
@@ -199,7 +201,9 @@
             var len = this.length / 2;
 
             ctx.save();
-            ctx.strokeStyle = 'rgb(35, 31, 32)';
+            ctx.strokeStyle = 'rgba(232,192,112,0.55)';
+            ctx.shadowColor  = 'rgba(232,192,112,0.7)';
+            ctx.shadowBlur   = 10;
             ctx.lineWidth = this.height;
             ctx.lineCap = 'round';
             ctx.lineJoin = 'round';
@@ -263,7 +267,7 @@
                 num = bloom.num || 500, 
                 width = bloom.width || this.width,
                 height = bloom.height || this.height,
-                figure = this.seed.heart.figure;
+                figure = new Star();
             var r = 240, x, y;
             for (var i = 0; i < num; i++) {
                 cache.push(this.createBloom(width, height, r, figure));
@@ -418,7 +422,7 @@
                 var bloom = this.opt.bloom || {},
                     width = bloom.width || this.width,
                     height = bloom.height || this.height,
-                    figure = this.seed.heart.figure;
+                    figure = new Star();
                 var r = 240, x, y;
                 for (var i = 0; i < random(1,2); i++) {
                     blooms.push(this.createBloom(width / 2 + width, height, r, figure, null, 1, null, 1, new Point(random(-100,600), 720), random(200,300)));
@@ -456,10 +460,10 @@
             var s = this;
             var ctx = s.tree.ctx;
             ctx.save();
-        	ctx.beginPath();
-        	ctx.fillStyle = 'rgb(35, 31, 32)';
-            ctx.shadowColor = 'rgb(35, 31, 32)';
-            ctx.shadowBlur = 2;
+            ctx.beginPath();
+            ctx.fillStyle = 'rgba(232,200,112,0.92)';
+            ctx.shadowColor = 'rgba(232,192,112,1)';
+            ctx.shadowBlur = s.radius > 5 ? 14 : 6;
         	ctx.moveTo(p.x, p.y);
         	ctx.arc(p.x, p.y, s.radius, 0, 2 * Math.PI);
         	ctx.closePath();
@@ -471,7 +475,8 @@
     Bloom = function(tree, point, figure, color, alpha, angle, scale, place, speed) {
         this.tree = tree;
         this.point = point;
-        this.color = color || 'rgb(255,' + random(0, 255) + ',' + random(0, 255) + ')';
+        var _pal = ['rgba(255,255,240,.85)','rgba(232,200,112,.90)','rgba(200,230,255,.75)','rgba(255,215,140,.85)','rgba(240,248,255,.80)'];
+        this.color = color || _pal[random(0, _pal.length - 1)];
         this.alpha = alpha || random(0.3, 1);
         this.angle = angle || random(0, 360);
         this.scale = scale || 0.1;
@@ -527,7 +532,8 @@
 
     window.random = random;
     window.bezier = bezier;
-    window.Point = Point;
-    window.Tree = Tree;
+    window.Point  = Point;
+    window.Tree   = Tree;
+    window.Star   = Star;
 
 })(window);

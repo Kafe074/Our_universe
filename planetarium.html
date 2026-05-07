@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestro Universo — Lulú & Itito</title>
+    <link rel="icon" type="image/png" href="Logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/global.css">
@@ -46,10 +47,22 @@
 
   <!-- Music player -->
   <div class="player" id="player">
-    <button class="player-btn" id="play-btn" aria-label="Play / Pause">
-      <svg id="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      <svg id="icon-pause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-    </button>
+
+    <!-- Controles de pista -->
+    <div class="player-controls">
+      <button class="player-btn player-btn--sm" id="prev-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+      </button>
+      <button class="player-btn" id="play-btn" aria-label="Play / Pause">
+        <svg id="icon-play"  viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="icon-pause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </button>
+      <button class="player-btn player-btn--sm" id="next-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24"><path d="M6 18 14.5 12 6 6v12zm2.5-6 8.5 6V6z"/></svg>
+      </button>
+    </div>
+
+    <!-- Título y barra de progreso -->
     <div class="player-info">
       <div class="player-title" id="player-title">♪ Nuestra canción</div>
       <div class="player-sub">Para Lulú, siempre</div>
@@ -57,12 +70,18 @@
         <div class="player-progress" id="player-progress"></div>
       </div>
     </div>
+
+    <!-- Volumen (arrastrable) -->
     <div class="player-vol">
-      <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+      <svg viewBox="0 0 24 24" id="vol-icon">
+        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+      </svg>
       <div class="vol-track" id="vol-track">
         <div class="vol-fill" id="vol-fill"></div>
+        <div class="vol-thumb" id="vol-thumb"></div>
       </div>
     </div>
+
   </div>
 
   <div class="ui-hint">✦ &nbsp; cada planeta es una historia</div>

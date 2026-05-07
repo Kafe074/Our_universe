@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crucigrama para Lulú ✦</title>
+  <link rel="icon" type="image/png" href="Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Input oculto para capturar teclado -->
+  <input id="hidden-input" style="position:fixed;opacity:0;pointer-events:none;left:-999px;" />
+
+  <div id="app">
+
+    <!-- Cabecera -->
+    <div id="game-header">
+
+      <!-- Botón volver: primer elemento del flex, sin flotar sobre nada -->
+      <a href="../../planetarium.html" class="btn-back" onclick="if(window.parent!==window){window.parent.postMessage('closeOverlay','*');return false;}">
+        <svg height="14" width="14" fill="none" viewBox="0 0 24 24" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span>Planetario</span>
+      </a>
+
+      <div>
+        <span id="set-number">Crucigrama 1 de 12</span>
+        <div id="set-title">T · Ternura</div>
+        <div id="letter-progress" title="TE AMO LULITO"></div>
+      </div>
+      <div id="game-controls">
+        <button class="ctrl-btn" id="btn-check">Verificar ✓</button>
+        <button class="ctrl-btn" id="btn-reveal">Revelar palabra</button>
+        <button class="ctrl-btn hidden" id="btn-next">Siguiente →</button>
+      </div>
+    </div>
+
+    <!-- Pista activa -->
+    <div id="current-clue"></div>
+
+    <!-- Área de juego -->
+    <div id="game-area">
+
+      <!-- Cuadrícula -->
+      <div id="grid-wrap">
+        <div id="xw-grid"></div>
+      </div>
+
+      <!-- Panel de pistas -->
+      <div id="clues">
+        <h3>Horizontal</h3>
+        <ul id="across-list"></ul>
+        <h3>Vertical</h3>
+        <ul id="down-list"></ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Overlay de celebración -->
+  <div id="celebration" class="hidden">
+    <div class="celeb-card">
+      <div id="celeb-title">¡Completado!</div>
+      <div id="celeb-msg"></div>
+      <button id="btn-next-xw">Siguiente crucigrama →</button>
+    </div>
+  </div>
+
+  <!-- Pantalla final (todos los crucigramas completados) -->
+  <div id="final-screen-xw" class="hidden">
+    <div class="celeb-card">
+      <div id="celeb-title" style="font-family:'Pinyon Script',cursive;font-size:2.8rem;color:#78d8a0;text-shadow:0 0 30px rgba(50,170,80,.55);margin-bottom:18px;">✦</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;color:rgba(240,230,210,.9);line-height:1.8;margin-bottom:26px;">
+        Completaste todos los crucigramas.<br>Cada palabra, cada letra...<br>todo era un mensaje para ti.<br><br>
+        <span style="color:#78d8a0;font-size:1.6rem;">T · E · A · M · O · L · U · L · I · T · O</span>
+      </div>
+      <button id="btn-final-restart-xw" style="background:rgba(120,216,160,.08);border:1px solid rgba(120,216,160,.3);border-radius:50px;color:#78d8a0;font-family:'Raleway',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:10px 26px;cursor:pointer;transition:all .3s ease;">Volver a jugar ↺</button>
+    </div>
+  </div>
+
+  <!-- Partículas de celebración -->
+  <div id="particles"></div>
+
+  <script src="words.js"></script>
+  <script src="engine.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

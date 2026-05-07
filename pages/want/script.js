@@ -120,13 +120,17 @@ function showNextQuestion(questionNumber) {
     document.getElementById(`question${questionNumber}`).classList.remove('hidden');
 }
 
-// Function to move the "No" button when clicked
+// Botón que escapa — se mueve a una posición aleatoria dentro del viewport
 function moveButton(button) {
-    const x = Math.random() * (window.innerWidth - button.offsetWidth);
-    const y = Math.random() * (window.innerHeight - button.offsetHeight);
+    const margin = 60;
+    const maxX = window.innerWidth  - button.offsetWidth  - margin;
+    const maxY = window.innerHeight - button.offsetHeight - margin;
+    const x = margin + Math.random() * Math.max(maxX - margin, 0);
+    const y = margin + Math.random() * Math.max(maxY - margin, 0);
     button.style.position = 'fixed';
-    button.style.left = x + 'px';
-    button.style.top = y + 'px';
+    button.style.zIndex   = '9999';
+    button.style.left     = x + 'px';
+    button.style.top      = y + 'px';
 }
 
 // Love meter functionality

@@ -1,0 +1,230 @@
+/* ─── VARIABLES ─────────────────────────────────────────────────────────────── */
+:root {
+  --text:  #f0e6d2;
+  --bg:    #06050c;
+  --card-bg: rgba(12, 6, 24, 0.82);
+}
+
+/* ─── BASE ──────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; overflow:hidden; }
+
+body {
+  background: var(--bg);
+  font-family: 'Raleway', sans-serif;
+  color: var(--text);
+  display:flex; flex-direction:column;
+}
+
+body::before {
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 65% 55% at 50% 50%, rgba(180,70,110,.06) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 20% 80%, rgba(100,30,60,.07)  0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(232,140,180,.04) 0%, transparent 60%);
+}
+body::after {
+  content:''; position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px;
+}
+
+/* ─── BOTÓN VOLVER ──────────────────────────────────────────────────────────── */
+.btn-back {
+  position:fixed; top:24px; left:24px; z-index:9000;
+  display:flex; align-items:center; gap:8px;
+  padding:8px 18px; text-decoration:none;
+  font-family:'Raleway',sans-serif; font-size:.7rem; font-weight:500;
+  letter-spacing:.16em; text-transform:uppercase; color:#e8b0c8;
+  border:1px solid rgba(232,160,184,.3); border-radius:50px;
+  background:rgba(232,160,184,.05); backdrop-filter:blur(8px);
+  transition:all .4s ease;
+}
+.btn-back:hover {
+  background:rgba(232,160,184,.14); border-color:#e8b0c8;
+  box-shadow:0 0 22px rgba(180,70,110,.3); transform:translateX(-3px);
+}
+.btn-back svg { stroke:currentColor; }
+
+/* ─── INTRO ─────────────────────────────────────────────────────────────────── */
+#letters-intro {
+  position:relative; z-index:2;
+  text-align:center; padding:90px 20px 30px; flex-shrink:0;
+}
+
+#letters-intro h1 {
+  font-family:'Pinyon Script',cursive;
+  font-size:clamp(2.8rem,6vw,5rem);
+  color:#e8b0c8; text-shadow:0 0 40px rgba(180,70,110,.5);
+  margin-bottom:10px;
+}
+
+#letters-intro p {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem; font-style:italic;
+  color:rgba(240,230,210,.45); letter-spacing:.05em;
+}
+
+/* ─── GRID DE CARTAS ────────────────────────────────────────────────────────── */
+#letters-grid {
+  position:relative; z-index:2;
+  flex:1; display:flex; align-items:center; justify-content:center;
+  padding:20px 32px 40px;
+  gap:20px; flex-wrap:wrap;
+}
+
+/* ─── CARTA-CARD ────────────────────────────────────────────────────────────── */
+.letter-card {
+  position:relative; overflow:hidden;
+  width:clamp(160px, 18vw, 220px);
+  padding:32px 22px 26px;
+  background:var(--card-bg);
+  border-radius:8px;
+  border: 1px solid rgba(255,255,255,.07);
+  cursor:pointer;
+  transition:transform .35s ease, box-shadow .35s ease, border-color .35s;
+  text-align:center;
+  backdrop-filter:blur(12px);
+}
+
+/* Borde superior coloreado (el "sello") */
+.letter-card::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+  background:var(--accent);
+  box-shadow:0 0 12px var(--accent-glow);
+  transition:height .35s ease;
+}
+
+.letter-card:hover {
+  transform:translateY(-8px);
+  border-color:rgba(255,255,255,.14);
+}
+.letter-card:hover::before { height:4px; }
+
+/* Triángulo decorativo tipo "solapa de sobre" */
+.letter-card::after {
+  content:'';
+  position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:0; height:0;
+  border-left:30px solid transparent;
+  border-right:30px solid transparent;
+  border-top:18px solid var(--accent);
+  opacity:.25;
+  transition:opacity .35s;
+}
+.letter-card:hover::after { opacity:.5; }
+
+.card-icon {
+  font-size:2.2rem; margin-bottom:16px; display:block;
+  filter:drop-shadow(0 0 8px var(--accent-glow));
+}
+
+.card-label {
+  font-family:'Pinyon Script',cursive;
+  font-size:1.55rem; line-height:1.2;
+  color:var(--text);
+  text-shadow:0 0 16px var(--accent-glow);
+  margin-bottom:8px; display:block;
+}
+
+.card-sublabel {
+  font-family:'Cormorant Garamond',serif;
+  font-size:.8rem; font-style:italic;
+  color:rgba(240,230,210,.4); letter-spacing:.04em;
+  display:block; margin-bottom:20px;
+}
+
+.card-btn {
+  font-family:'Raleway',sans-serif; font-size:.6rem;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--accent); opacity:.7;
+}
+.letter-card:hover .card-btn { opacity:1; }
+
+/* ─── OVERLAY DE LECTURA ────────────────────────────────────────────────────── */
+#letter-overlay {
+  position:fixed; inset:0; z-index:8000;
+  background:rgba(6,5,12,.96); backdrop-filter:blur(18px);
+  display:flex; align-items:center; justify-content:center;
+  padding:20px;
+  opacity:0; pointer-events:none;
+  transition:opacity .5s ease;
+}
+#letter-overlay.open { opacity:1; pointer-events:auto; }
+
+/* Papel de la carta */
+#letter-paper {
+  position:relative;
+  max-width:640px; width:100%;
+  max-height:88vh; overflow-y:auto;
+  background:rgba(16, 8, 30, 0.85);
+  border-radius:6px;
+  padding:52px 48px 44px;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 0 60px rgba(180,70,110,.1);
+  transform:translateY(30px);
+  transition:transform .5s cubic-bezier(.16,1,.3,1);
+}
+#letter-overlay.open #letter-paper { transform:translateY(0); }
+
+/* Línea de color en el borde izquierdo de la carta */
+#letter-paper::before {
+  content:'';
+  position:absolute; top:32px; left:0; bottom:32px; width:2px;
+  background:var(--letter-accent);
+  box-shadow:0 0 10px var(--letter-glow);
+  border-radius:0 2px 2px 0;
+}
+
+#letter-salutation {
+  font-family:'Pinyon Script',cursive;
+  font-size:2rem; color:var(--letter-accent);
+  text-shadow:0 0 20px var(--letter-glow);
+  margin-bottom:24px; display:block;
+}
+
+.letter-paragraph {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem; font-weight:300; font-style:italic;
+  color:rgba(240,230,210,.82);
+  line-height:1.85; letter-spacing:.02em;
+  margin-bottom:18px;
+}
+
+#letter-closing {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem; font-style:italic;
+  color:rgba(240,230,210,.5);
+  margin-top:28px; margin-bottom:6px; display:block;
+}
+
+#letter-signature {
+  font-family:'Pinyon Script',cursive;
+  font-size:2.2rem; color:var(--letter-accent);
+  text-shadow:0 0 18px var(--letter-glow);
+  display:block;
+}
+
+/* Botón cerrar */
+#letter-close {
+  position:absolute; top:18px; right:18px;
+  background:none; border:1px solid rgba(255,255,255,.15);
+  color:rgba(240,230,210,.5); font-size:.9rem;
+  width:36px; height:36px; border-radius:50%;
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+  transition:all .3s;
+}
+#letter-close:hover { background:rgba(255,255,255,.08); color:var(--text); }
+
+/* ─── SCROLLBAR ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-thumb { background:rgba(232,160,184,.2); border-radius:2px; }
+
+/* ─── RESPONSIVE ────────────────────────────────────────────────────────────── */
+@media (max-width:600px) {
+  #letters-grid { gap:14px; padding:16px 16px 32px; }
+  .letter-card { width:calc(50% - 7px); padding:24px 16px 20px; }
+  #letter-paper { padding:36px 28px 32px; }
+  .letter-paragraph { font-size:1.05rem; }
+}

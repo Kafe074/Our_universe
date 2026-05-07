@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartas para Ti ✦</title>
+  <link rel="icon" type="image/png" href="Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <a href="../../planetarium.html" class="btn-back" onclick="if(window.parent!==window){window.parent.postMessage('closeOverlay','*');return false;}">
+    <svg height="14" width="14" fill="none" viewBox="0 0 24 24" stroke-width="1.8">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+    <span>Planetario</span>
+  </a>
+
+  <div id="letters-intro">
+    <h1>Cartas para Ti</h1>
+    <p>Hay cosas que quiero que sepas · Para cada momento que las necesites</p>
+  </div>
+
+  <div id="letters-grid"></div>
+
+  <!-- Overlay de lectura -->
+  <div id="letter-overlay">
+    <div id="letter-paper">
+      <button id="letter-close">✕</button>
+      <span id="letter-salutation"></span>
+      <div id="letter-body"></div>
+      <span id="letter-closing"></span>
+      <span id="letter-signature"></span>
+    </div>
+  </div>
+
+  <script src="letters.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

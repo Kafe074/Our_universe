@@ -1,207 +1,359 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Our love</title>	    
-        <link type="text/css" rel="stylesheet" href="./file/default.css">
-		<script type="text/javascript" src="./file/jquery.min.js"></script>
-		<script type="text/javascript" src="./file/jscex.min.js"></script>
-		<script type="text/javascript" src="./file/jscex-parser.js"></script>
-		<script type="text/javascript" src="./file/jscex-jit.js"></script>
-		<script type="text/javascript" src="./file/jscex-builderbase.min.js"></script>
-		<script type="text/javascript" src="./file/jscex-async.min.js"></script>
-		<script type="text/javascript" src="./file/jscex-async-powerpack.min.js"></script>
-		<script type="text/javascript" src="./file/functions.js" charset="utf-8"></script>
-		<script type="text/javascript" src="./file/love.js" charset="utf-8"></script>
-	    <style type="text/css">
-        </style>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siempre Juntos</title>
+  <link rel="icon" type="image/png" href="Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./file/default.css" />
 </head>
-    <body>
-        <div id="main">
-            <div id="error">Error(<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。</div>
-            <!-- <audio autoplay="autoplay" height="100" width="100"> -->
-                    <!-- <source src="renxi.mp3" type="audio/mp3" /> -->
-                    <!-- <embed height="100" width="100" src="renxi.mp3" /> -->
-            <!-- </audio> -->
-            <div id="wrap">
-                <div id="text">
-                    <div id="code"> <font color="#FF0000"> 
-                      <span class="say">Mi Luli bonita,</span><br>
-                      <span class="say">hoy inicia nuestra relación oficialmente,</span><br>
-                      <span class="say">Cada momento contigo es un tesoro, una aventura que apenas comienza.</span><br>
-                      <span class="say">Prometo cuidarte, respetarte y amarte, y hacerte sonreír con todo mi corazón.</span><br>
-                      <span class="say">Gracias por elegir compartir este camino conmigo.</span><br>
-                      <span class="say">¡Feliz inicio de nuestro para siempre!</span><br>
-                      <span class="say"><span class="space"></span>--Con mucho amor, Itito</span> </font>
-                          <br />
-                          <br />
-                      </p>
-                    </div>
-                  </div>
-                <div id="clock-box">
-                    <span class="STYLE1"></span><font color="#33CC00">Mi Luli, estamos juntos</font>
-<span class="STYLE1">desde hace:</span>
-                  <div id="clock"></div>
-              </div>
-                <canvas id="canvas" width="1100" height="680"></canvas>
-            </div>
-            
-        </div>
-    
-    <script>
-    </script>
+<body>
 
-    <script>
-    (function(){
-        var canvas = $('#canvas');
-		
-        if (!canvas[0].getContext) {
-            $("#error").show();
-            return false;        }
+  <!-- Atmósfera del planetario -->
+  <div class="nebula"></div>
+  <div class="grain"></div>
 
-        var width = canvas.width();
-        var height = canvas.height();        
-        canvas.attr("width", width);
-        canvas.attr("height", height);
-        var opts = {
-            seed: {
-                x: width / 2 - 20,
-                color: "rgb(190, 26, 37)",
-                scale: 2
-            },
-            branch: [
-                [535, 680, 570, 250, 500, 200, 30, 100, [
-                    [540, 500, 455, 417, 340, 400, 13, 100, [
-                        [450, 435, 434, 430, 394, 395, 2, 40]
-                    ]],
-                    [550, 445, 600, 356, 680, 345, 12, 100, [
-                        [578, 400, 648, 409, 661, 426, 3, 80]
-                    ]],
-                    [539, 281, 537, 248, 534, 217, 3, 40],
-                    [546, 397, 413, 247, 328, 244, 9, 80, [
-                        [427, 286, 383, 253, 371, 205, 2, 40],
-                        [498, 345, 435, 315, 395, 330, 4, 60]
-                    ]],
-                    [546, 357, 608, 252, 678, 221, 6, 100, [
-                        [590, 293, 646, 277, 648, 271, 2, 80]
-                    ]]
-                ]] 
-            ],
-            bloom: {
-                num: 700,
-                width: 1080,
-                height: 650,
-            },
-            footer: {
-                width: 1200,
-                height: 5,
-                speed: 10,
-            }
+  <!-- Botón volver -->
+  <a href="../../planetarium.html" class="btn-back" onclick="if(window.parent!==window){window.parent.postMessage('closeOverlay','*');return false;}">
+    <svg height="18" width="18" fill="none" viewBox="0 0 24 24" stroke-width="1.8">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+    <span>Volver al Planetario</span>
+  </a>
+
+  <!-- Canvas del árbol galáctico -->
+  <canvas id="canvas"></canvas>
+
+  <!-- Carta que aparece tras el árbol -->
+  <div id="message-wrap">
+    <span class="msg-eyebrow">Para mi Lulú</span>
+    <div id="code">
+      <span class="say">Mi Luli bonita,</span>
+      <span class="say">hoy inicia nuestra relación oficialmente.</span>
+      <span class="say">Cada momento contigo es un tesoro,</span>
+      <span class="say">una aventura que apenas comienza.</span>
+      <span class="say">Prometo cuidarte, respetarte y amarte,</span>
+      <span class="say">y hacerte sonreír con todo mi corazón.</span>
+      <span class="say">Gracias por elegir compartir este camino conmigo.</span>
+      <span class="say">¡Feliz inicio de nuestro para siempre!</span>
+      <span class="say" style="margin-top:.8rem; color:#e8c070;">— Con mucho amor, Itito</span>
+    </div>
+  </div>
+
+  <!-- Pista para tocar las estrellas -->
+  <div id="star-hint">✦ &nbsp; Toca una estrella</div>
+
+  <!-- Nodos de constelación (se generan en JS) -->
+  <div id="const-nodes"></div>
+
+  <!-- Overlay del versículo -->
+  <div id="verse-overlay">
+    <div class="verse-card">
+      <button id="verse-close">✕</button>
+      <div id="verse-ref"></div>
+      <div id="verse-text"></div>
+    </div>
+  </div>
+
+  <!-- Scripts (orden original de Jscex) -->
+  <script src="./file/jquery.min.js"></script>
+  <script src="./file/jscex.min.js"></script>
+  <script src="./file/jscex-parser.js"></script>
+  <script src="./file/jscex-jit.js"></script>
+  <script src="./file/jscex-builderbase.min.js"></script>
+  <script src="./file/jscex-async.min.js"></script>
+  <script src="./file/jscex-async-powerpack.min.js"></script>
+  <script src="./file/functions.js" charset="utf-8"></script>
+  <script src="./file/love.js"      charset="utf-8"></script>
+
+  <script>
+  (function () {
+
+    /* ── Versículos y mensajes ───────────────────────────────── */
+    var verses = [
+      { ref: 'Cantares 6:3',
+        text: 'Yo soy de mi amado, y mi amado es mío.' },
+      { ref: '1 Corintios 13:4–5',
+        text: 'El amor es sufrido, es benigno; el amor no tiene envidia, no se porta indecorosamente, no busca lo suyo.' },
+      { ref: 'Salmos 139:14',
+        text: 'Formidables y maravillosas son tus obras; estoy maravillado.' },
+      { ref: 'Cantares 2:16',
+        text: 'Mi amado es mío y yo soy suya.' },
+      { ref: 'Proverbios 3:15',
+        text: 'Es más preciosa que las piedras preciosas, y todo lo que puedes desear no se puede comparar con ella.' },
+      { ref: 'Jeremías 29:11',
+        text: 'Los pensamientos que tengo acerca de vosotros son de paz y no de mal, para daros el fin que esperáis.' },
+      { ref: 'Romanos 8:38–39',
+        text: 'Nada nos podrá separar del amor de Dios, que es en Cristo Jesús Señor nuestro.' },
+      { ref: 'De tu Itito 🤍',
+        text: 'Cada día me doy más cuenta de lo afortunado que soy de tenerte. Gracias por ser exactamente tú.' }
+    ];
+
+    /* ── Canvas a tamaño de viewport ────────────────────────── */
+    var $canvas = $('#canvas');
+    var W = window.innerWidth;
+    var H = window.innerHeight;
+    $canvas.attr('width', W).attr('height', H);
+
+    /* ── Factores de escala (respecto al diseño original 1100×680) ── */
+    var sw = W / 1100;
+    var sh = H / 680;
+    var sr = Math.min(sw, sh);   // escala para el radio
+
+    /* ── Escalar coordenadas de ramas recursivamente ────────── */
+    function sb(b) {
+      var out = [
+        Math.round(b[0] * sw), Math.round(b[1] * sh),
+        Math.round(b[2] * sw), Math.round(b[3] * sh),
+        Math.round(b[4] * sw), Math.round(b[5] * sh),
+        Math.round(b[6] * sr),
+        b[7]
+      ];
+      if (b[8] && b[8].length) out.push(b[8].map(sb));
+      return out;
+    }
+
+    /* ── Posiciones de los nodos en el árbol (extremos y puntos medios)
+         Para añadir un versículo nuevo: solo agrega al array `verses`.
+         Si hay más verses que rawNodes, se reutician posiciones.      ── */
+    var rawNodes = [
+      [500, 200], [340, 400], [394, 395],
+      [680, 345], [661, 426], [534, 217],
+      [328, 244], [371, 205],
+      /* puntos medios para mensajes extra */
+      [648, 271], [395, 330], [678, 221], [450, 350]
+    ];
+
+    /* ── Opciones del árbol ──────────────────────────────────── */
+    var opts = {
+      seed: {
+        x: Math.round(W / 2 - 20 * sw),
+        color: '#e8c070',
+        scale: 2
+      },
+      branch: [
+        sb([535, 680, 570, 250, 500, 200, 30, 100, [
+          [540, 500, 455, 417, 340, 400, 13, 100, [
+            [450, 435, 434, 430, 394, 395, 2, 40]
+          ]],
+          [550, 445, 600, 356, 680, 345, 12, 100, [
+            [578, 400, 648, 409, 661, 426, 3, 80]
+          ]],
+          [539, 281, 537, 248, 534, 217, 3, 40],
+          [546, 397, 413, 247, 328, 244, 9, 80, [
+            [427, 286, 383, 253, 371, 205, 2, 40],
+            [498, 345, 435, 315, 395, 330, 4, 60]
+          ]],
+          [546, 357, 608, 252, 678, 221, 6, 100, [
+            [590, 293, 646, 277, 648, 271, 2, 80]
+          ]]
+        ]])
+      ],
+      bloom: {
+        num: 700,
+        width:  Math.round(1080 * sw),
+        height: Math.round(650 * sh)
+      },
+      footer: {
+        width: Math.round(1200 * sw),
+        height: 5,
+        speed: 10
+      }
+    };
+
+    /* ── Árbol ──────────────────────────────────────────────── */
+    var tree = new Tree($canvas[0], W, H, opts);
+    var seed = tree.seed;
+    var foot = tree.footer;
+    var hold = 1;
+
+    $canvas.click(function (e) {
+      var off = $canvas.offset();
+      var x = e.pageX - off.left, y = e.pageY - off.top;
+      if (seed.hover(x, y)) {
+        hold = 0;
+        $canvas.unbind('click').unbind('mousemove').removeClass('hand');
+      }
+    }).mousemove(function (e) {
+      var off = $canvas.offset();
+      $canvas.toggleClass('hand', seed.hover(e.pageX - off.left, e.pageY - off.top));
+    });
+
+    // Auto-arranque si no hay clic en 2.5 s
+    setTimeout(function () {
+      if (hold) {
+        hold = 0;
+        $canvas.unbind('click').unbind('mousemove').removeClass('hand');
+      }
+    }, 2500);
+
+    /* ── Constelación interactiva ────────────────────────────────
+         Genera un nodo por cada verso. Si hay más versos que
+         posiciones definidas, reutiliza posiciones con offset.    ── */
+    function showConstellationNodes() {
+      var $wrap = $('#const-nodes');
+
+      verses.forEach(function (verse, i) {
+        var pos = rawNodes[i % rawNodes.length];
+        var cx  = Math.round(pos[0] * sw);
+        var cy  = Math.round(pos[1] * sh);
+
+        var $n = $('<div class="cnode"></div>')
+          .css({ left: cx, top: cy })
+          .attr('title', verse.ref)
+          .on('click', function () { openVerse(i); });
+
+        $wrap.append($n);
+
+        // Fade escalonado para que aparezcan uno a uno
+        setTimeout(function () { $n.addClass('visible'); }, i * 220);
+      });
+
+      setTimeout(function () {
+        $('#star-hint').addClass('visible');
+      }, verses.length * 220 + 400);
+    }
+
+    function openVerse(idx) {
+      var v = verses[idx];
+      $('#verse-ref').text(v.ref);
+      $('#verse-text').text(v.text);
+      $('#verse-overlay').addClass('open');
+    }
+
+    $('#verse-close').on('click', function () {
+      $('#verse-overlay').removeClass('open');
+    });
+    $('#verse-overlay').on('click', function (e) {
+      if (e.target === this) $(this).removeClass('open');
+    });
+
+    /* ── Secuencia de animación (Jscex) ─────────────────────── */
+    var seedAnimate = eval(Jscex.compile('async', function () {
+      seed.draw();
+      while (hold) { $await(Jscex.Async.sleep(10)); }
+      while (seed.canScale()) { seed.scale(0.95); $await(Jscex.Async.sleep(10)); }
+      while (seed.canMove())  { seed.move(0, 2); foot.draw(); $await(Jscex.Async.sleep(10)); }
+    }));
+
+    var growAnimate = eval(Jscex.compile('async', function () {
+      do { tree.grow(); $await(Jscex.Async.sleep(10)); } while (tree.canGrow());
+    }));
+
+    var flowAnimate = eval(Jscex.compile('async', function () {
+      do { tree.flower(2); $await(Jscex.Async.sleep(10)); } while (tree.canFlower());
+    }));
+
+    var textAnimate = eval(Jscex.compile('async', function () {
+      // Mostrar carta con typewriter
+      var $msg = $('#message-wrap');
+      $msg.addClass('visible');
+      $('#code').show().typewriter();
+
+      // Esperar que termine el typewriter (~9 s) y mostrar nodos
+      $await(Jscex.Async.sleep(9000));
+      showConstellationNodes();
+    }));
+
+    // Imagen estática del árbol
+    window._treeImg = null;
+
+    // ── Sistema de partículas (estrellas cayendo) ─────────────────
+    var _stars = [];
+    var STAR_MAX = 14;
+
+    function _spawnStar() {
+      // Nacer dentro del área del árbol (centro-derecha del canvas)
+      var xMin = Math.round(W * 0.25);
+      var xMax = Math.round(W * 0.75);
+      _stars.push({
+        x:       xMin + Math.random() * (xMax - xMin),
+        y:       Math.random() * H * 0.6,        // nace en los 2/3 superiores
+        vy:      0.35 + Math.random() * 0.9,     // velocidad vertical
+        vx:      (Math.random() - 0.5) * 0.5,    // deriva lateral suave
+        size:    1.2 + Math.random() * 2.2,      // tamaño 1-3 px
+        opacity: 0.6 + Math.random() * 0.4,
+        fade:    0.004 + Math.random() * 0.006   // velocidad de desvanecimiento
+      });
+    }
+
+    function _drawStars(ctx) {
+      for (var i = _stars.length - 1; i >= 0; i--) {
+        var s = _stars[i];
+        s.y       += s.vy;
+        s.x       += s.vx;
+        s.opacity -= s.fade;
+
+        // Eliminar cuando sale del canvas o se desvanece del todo
+        if (s.y > H + 10 || s.opacity <= 0) {
+          _stars.splice(i, 1);
+          continue;
         }
 
-        var tree = new Tree(canvas[0], width, height, opts);
-        var seed = tree.seed;
-        var foot = tree.footer;
-        var hold = 1;
+        // Dibujar estrella de 5 puntas dorada
+        ctx.save();
+        ctx.globalAlpha  = s.opacity;
+        ctx.fillStyle    = '#e8c070';
+        ctx.shadowColor  = 'rgba(232,192,112,0.85)';
+        ctx.shadowBlur   = 7;
+        ctx.beginPath();
+        var r1 = s.size, r2 = s.size * 0.42;
+        for (var j = 0; j < 10; j++) {
+          var r     = j % 2 === 0 ? r1 : r2;
+          var angle = (j * Math.PI) / 5 - Math.PI / 2;
+          var px = s.x + r * Math.cos(angle);
+          var py = s.y + r * Math.sin(angle);
+          if (j === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+    }
 
-        canvas.click(function(e) {
-            var offset = canvas.offset(), x, y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            if (seed.hover(x, y)) {
-                hold = 0; 
-                canvas.unbind("click");
-                canvas.unbind("mousemove");
-                canvas.removeClass('hand');
-            }
-        }).mousemove(function(e){
-            var offset = canvas.offset(), x, y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            canvas.toggleClass('hand', seed.hover(x, y));
-        });
+    var jumpAnimate = eval(Jscex.compile('async', function () {
+      while (true) {
+        var ctx = tree.ctx;
+        ctx.clearRect(0, 0, W, H);
 
-        var seedAnimate = eval(Jscex.compile("async", function () {
-            seed.draw();
-            while (hold) {
-                $await(Jscex.Async.sleep(10));
-            }
-            while (seed.canScale()) {
-                seed.scale(0.95);
-                $await(Jscex.Async.sleep(10));
-            }
-            while (seed.canMove()) {
-                seed.move(0, 2);
-                foot.draw();
-                $await(Jscex.Async.sleep(10));
-            }
-        }));
+        // Árbol siempre visible
+        if (window._treeImg && window._treeImg.complete) {
+          ctx.drawImage(window._treeImg, 0, 0, W, H);
+        }
 
-        var growAnimate = eval(Jscex.compile("async", function () {
-            do {
-    	        tree.grow();
-                $await(Jscex.Async.sleep(10));
-            } while (tree.canGrow());
-        }));
+        // Nacer nuevas estrellitas gradualmente
+        if (_stars.length < STAR_MAX && Math.random() < 0.35) {
+          _spawnStar();
+        }
 
-        var flowAnimate = eval(Jscex.compile("async", function () {
-            do {
-    	        tree.flower(2);
-                $await(Jscex.Async.sleep(10));
-            } while (tree.canFlower());
-        }));
+        _drawStars(ctx);
+        foot.draw();
+        $await(Jscex.Async.sleep(25));
+      }
+    }));
 
-        var moveAnimate = eval(Jscex.compile("async", function () {
-            tree.snapshot("p1", 240, 0, 610, 680);
-            while (tree.move("p1", 500, 0)) {
-                foot.draw();
-                $await(Jscex.Async.sleep(10));
-            }
-            foot.draw();
-            tree.snapshot("p2", 500, 0, 610, 680);
+    var runAsync = eval(Jscex.compile('async', function () {
+      $await(seedAnimate());
+      $await(growAnimate());
+      $await(flowAnimate());
 
-            // 会有闪烁不得意这样做, (＞﹏＜)
-            canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
-            canvas.css("background", "#ffe");
-            $await(Jscex.Async.sleep(300));
-            canvas.css("background", "none");
-        }));
+      // Capturar el árbol como imagen y esperar que cargue
+      window._treeImg = new Image();
+      window._treeImg.src = tree.toDataURL('image/png');
+      $await(Jscex.Async.sleep(200));
 
-        var jumpAnimate = eval(Jscex.compile("async", function () {
-            var ctx = tree.ctx;
-            while (true) {
-                tree.ctx.clearRect(0, 0, width, height);
-                tree.jump();
-                foot.draw();
-                $await(Jscex.Async.sleep(25));
-            }
-        }));
+      // Carta y estrellas en paralelo
+      textAnimate().start();
+      $await(jumpAnimate());
+    }));
 
-        var textAnimate = eval(Jscex.compile("async", function () {
-		    var together = new Date();
-		    together.setFullYear(2025, 10, 7); 			
-		    together.setHours(16);							
-		    together.setMinutes(0);					
-		    together.setSeconds(0);					
-		    together.setMilliseconds(0);				
+    runAsync().start();
 
-		    $("#code").show().typewriter();
-            $("#clock-box").fadeIn(500);
-            while (true) {
-                timeElapse(together);
-                $await(Jscex.Async.sleep(1000));
-            }
-        }));
+  })();
+  </script>
 
-        var runAsync = eval(Jscex.compile("async", function () {
-            $await(seedAnimate());
-            $await(growAnimate());
-            $await(flowAnimate());
-            $await(moveAnimate());
-
-            textAnimate().start();
-
-            $await(jumpAnimate());
-        }));
-
-        runAsync().start();
-    })();
-    </script></body></html>
+</body>
+</html>

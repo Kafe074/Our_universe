@@ -88,7 +88,7 @@ const animationTimeline = () => {
       0.05
     )
     .to(".fake-btn", 0.1, {
-      backgroundColor: "rgb(127, 206, 248)",
+      backgroundColor: "rgba(100, 200, 230, 0.85)",
     })
     .to(
       ".four",
@@ -108,8 +108,8 @@ const animationTimeline = () => {
     .to(".idea-3 strong", 0.5, {
       scale: 1.2,
       x: 10,
-      backgroundColor: "rgb(21, 161, 237)",
-      color: "#fff",
+      backgroundColor: "rgba(40, 150, 195, 0.85)",
+      color: "#f0e6d2",
     })
     .to(".idea-3", 0.7, ideaTextTransLeave, "+=1.5")
     .from(".idea-4", 0.7, ideaTextTrans)
@@ -222,7 +222,7 @@ const animationTimeline = () => {
       {
         scale: 1,
         rotationY: 0,
-        color: "#ff69b4",
+        color: "#80c8d8",
         ease: Expo.easeOut,
       },
       0.1,

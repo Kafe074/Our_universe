@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Universo de Lulú ✦</title>
+  <link rel="icon" type="image/png" href="Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Partículas del hero (canvas) -->
+  <canvas id="hero-canvas"></canvas>
+
+  <a href="../../planetarium.html" class="btn-back" onclick="if(window.parent!==window){window.parent.postMessage('closeOverlay','*');return false;}">
+    <svg height="14" width="14" fill="none" viewBox="0 0 24 24" stroke-width="1.8">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+    <span>Planetario</span>
+  </a>
+
+  <!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-ornament">✦ &nbsp;&nbsp; ✦ &nbsp;&nbsp; ✦</div>
+    <h1 id="hero-title">El Universo de Lulú</h1>
+    <p class="hero-quote">
+      "Hay personas que llegan a tu vida…<br>
+      y otras que se convierten en ella."
+    </p>
+    <a href="#s-como" class="scroll-hint">↓</a>
+  </section>
+
+  <!-- ── CÓMO TE VEO ───────────────────────────────────────────────────────── -->
+  <section class="section" id="s-como">
+    <span class="section-label">Cómo te veo</span>
+    <div class="como-text">
+      <p>
+        Te veo como alguien <em class="hl">increíblemente sensible</em>,
+        con un corazón tan bonito que incluso cuando estás cansada
+        sigues preocupándote por otros.
+      </p>
+      <p>
+        Te veo <em class="hl">fuerte incluso cuando dudas de ti</em>,
+        y más valiosa de lo que imaginas.
+      </p>
+      <p class="como-final">
+        Para mí eres <span class="gold-word">calma</span>,
+        <span class="gold-word">ternura</span>,
+        <span class="gold-word">luz</span> y
+        <span class="gold-word">hogar</span>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── TUS COLORES ───────────────────────────────────────────────────────── -->
+  <section class="section" id="s-colores">
+    <span class="section-label">Tus colores</span>
+    <p class="section-hint">Toca cada color para descubrir por qué te representa</p>
+    <div class="colors-grid">
+
+      <div class="color-card" tabindex="0" onclick="this.classList.toggle('flipped')">
+        <div class="color-card-inner">
+          <div class="color-front" style="--s:#7B5EA7;--sg:rgba(123,94,167,.6)">
+            <div class="color-circle"></div>
+            <span class="color-name">Morado</span>
+            <span class="flip-cue">✦</span>
+          </div>
+          <div class="color-back" style="--s:#7B5EA7;--sg:rgba(123,94,167,.4)">
+            <span class="color-name">Morado</span>
+            <p>Es el color de tu profundidad. Cuando pienso en ti pienso en algo que va más allá de lo superficial. Tienes una sensibilidad especial que pocas personas tienen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="color-card" tabindex="0" onclick="this.classList.toggle('flipped')">
+        <div class="color-card-inner">
+          <div class="color-front" style="--s:#F5D060;--sg:rgba(245,208,96,.6)">
+            <div class="color-circle"></div>
+            <span class="color-name">Amarillo</span>
+            <span class="flip-cue">✦</span>
+          </div>
+          <div class="color-back" style="--s:#F5D060;--sg:rgba(245,208,96,.4)">
+            <span class="color-name">Amarillo</span>
+            <p>Es el color de tu sonrisa. Esa que aparece de repente y cambia completamente el ambiente. Brilla de adentro hacia afuera, como la luz que eres en mis días.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="color-card" tabindex="0" onclick="this.classList.toggle('flipped')">
+        <div class="color-card-inner">
+          <div class="color-front" style="--s:#5B8FCC;--sg:rgba(91,143,204,.6)">
+            <div class="color-circle"></div>
+            <span class="color-name">Azul</span>
+            <span class="flip-cue">✦</span>
+          </div>
+          <div class="color-back" style="--s:#5B8FCC;--sg:rgba(91,143,204,.4)">
+            <span class="color-name">Azul</span>
+            <p>Es el color de la paz que me das. Estar contigo se siente como ese cielo despejado que calma sin necesitar decir nada. Contigo simplemente es fácil respirar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="color-card" tabindex="0" onclick="this.classList.toggle('flipped')">
+        <div class="color-card-inner">
+          <div class="color-front" style="--s:#F0EAD6;--sg:rgba(240,234,214,.5)">
+            <div class="color-circle"></div>
+            <span class="color-name">Blanco</span>
+            <span class="flip-cue">✦</span>
+          </div>
+          <div class="color-back" style="--s:#F0EAD6;--sg:rgba(240,234,214,.4)">
+            <span class="color-name">Blanco</span>
+            <p>Es tu pureza. Tu honestidad, ese corazón sin dobleces que hace que confiar en ti sea fácil y natural. Lo que sientes lo muestras, lo que dices lo cumples.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── TUS CANCIONES ─────────────────────────────────────────────────────── -->
+  <section class="section" id="s-canciones">
+    <span class="section-label">Canciones que me recuerdan a ti</span>
+    <div class="songs-list">
+      <a class="song-card"
+         href="https://youtu.be/yKNxeF4KMsY?si=Dwbh88fitfmn8ODj"
+         target="_blank" rel="noopener noreferrer">
+        <div class="song-note">♪</div>
+        <div class="song-info">
+          <span class="song-title">Yellow</span>
+          <span class="song-artist">Coldplay</span>
+          <span class="song-why">La que suena cuando te regalo flores. «Look at the stars, look how they shine for you.» Cada vez que la escucho pienso en ti.</span>
+        </div>
+      </a>
+      <a class="song-card"
+         href="https://youtu.be/iY-6SP_hS3o?si=8_PXvrOfyGomhbNC"
+         target="_blank" rel="noopener noreferrer">
+        <div class="song-note">♪</div>
+        <div class="song-info">
+          <span class="song-title">Vamos Bien</span>
+          <span class="song-artist">Majo y Dan</span>
+          <span class="song-why">La que escuché y pensé en ti, como avanzamos paso a paso, yendo a nuestro destino juntos.</span>
+        </div>
+      </a>
+      <a class="song-card"
+         href="https://youtu.be/q07Gd6Q-7dY?si=_ozQ2HrhLg74MA72"
+         target="_blank" rel="noopener noreferrer">
+        <div class="song-note">♪</div>
+        <div class="song-info">
+          <span class="song-title">Te Quiero Tanto</span>
+          <span class="song-artist">Kevin Kaarl</span>
+          <span class="song-why">Esta canción me recuerda mucho a ti porque tiene esa sensación de amor sincero, tranquilo y profundo. De ese amor que no necesita ser perfecto para sentirse real.</span>
+        </div>
+      </a>
+      <div class="song-card song-card--add">
+        <div class="song-note">+</div>
+        <div class="song-info">
+          <span class="song-title">Tu canción</span>
+          <span class="song-artist">La que tú añades a mi vida</span>
+          <span class="song-why">Porque hay canciones que solo cobran sentido cuando estás tú.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COSAS QUE AMO ─────────────────────────────────────────────────────── -->
+  <section class="section" id="s-amo">
+    <span class="section-label">Cosas que amo de ti</span>
+    <p class="section-hint">Pasa el cursor para saber un poco más</p>
+    <div class="love-grid">
+      <div class="love-item">
+        <span class="love-icon">♡</span>
+        <div class="love-content">
+          <span class="love-main">La forma en que te preocupas por otros.</span>
+          <span class="love-detail">Incluso cuando estás cansada, piensas primero en los demás. Eso dice mucho de quién eres.</span>
+        </div>
+      </div>
+      <div class="love-item">
+        <span class="love-icon">♡</span>
+        <div class="love-content">
+          <span class="love-main">Cómo intentas dar lo mejor de ti incluso cansada.</span>
+          <span class="love-detail">Nunca te he visto hacer algo a medias. Todo lo que haces, lo haces con el corazón.</span>
+        </div>
+      </div>
+      <div class="love-item">
+        <span class="love-icon">♡</span>
+        <div class="love-content">
+          <span class="love-main">Tu sonrisa cuando realmente estás feliz.</span>
+          <span class="love-detail">No es la sonrisa de cortesía. Es la que se te escapa sin darte cuenta. Esa es mi favorita.</span>
+        </div>
+      </div>
+      <div class="love-item">
+        <span class="love-icon">♡</span>
+        <div class="love-content">
+          <span class="love-main">Tu sensibilidad.</span>
+          <span class="love-detail">Sientes las cosas muy profundo. Y aunque a veces duela, es uno de tus dones más bonitos.</span>
+        </div>
+      </div>
+      <div class="love-item">
+        <span class="love-icon">♡</span>
+        <div class="love-content">
+          <span class="love-main">Cómo hablas de las cosas que amas.</span>
+          <span class="love-detail">Tus ojos cambian. Tu voz cambia. Toda tú cambias cuando hablas de algo que te importa.</span>
+        </div>
+      </div>
+      <div class="love-item">
+        <span class="love-icon">♡</span>
+        <div class="love-content">
+          <span class="love-main">Tu corazón tan genuino.</span>
+          <span class="love-detail">Lo que sientes lo muestras, lo que dices lo cumples. Eso es muy valioso y muy raro.</span>
+        </div>
+      </div>
+      <div class="love-item">
+        <span class="love-icon">♡</span>
+        <div class="love-content">
+          <span class="love-main">La paz que me das.</span>
+          <span class="love-detail">Contigo no necesito explicaciones. Simplemente es fácil ser yo mismo.</span>
+        </div>
+      </div>
+      <div class="love-item">
+        <span class="love-icon">♡</span>
+        <div class="love-content">
+          <span class="love-main">Cómo me haces querer ser mejor.</span>
+          <span class="love-detail">Sin pedirme nada, me inspiras a crecer. No sé cómo lo haces, pero funciona.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FRASES — CAROUSEL ──────────────────────────────────────────────────── -->
+  <section class="section" id="s-frases">
+    <span class="section-label">Frases que te representan</span>
+    <div class="quotes-carousel">
+      <div class="quote-display">
+        <div class="quote-deco left">"</div>
+        <p id="quote-text"></p>
+        <div class="quote-deco right">"</div>
+      </div>
+      <div class="quotes-controls">
+        <button id="q-prev" class="q-nav" aria-label="Anterior">←</button>
+        <div class="q-dots" id="q-dots"></div>
+        <button id="q-next" class="q-nav" aria-label="Siguiente">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MIS SUEÑOS ────────────────────────────────────────────────────────── -->
+  <section class="section" id="s-suenos">
+    <span class="section-label">Mis sueños contigo</span>
+    <ul class="dreams-list">
+      <li>Acompañarte en cada etapa de tu vida.</li>
+      <li>Verte cumplir tus metas.</li>
+      <li>Estar contigo en los días fáciles y en los difíciles.</li>
+      <li>Construir un hogar bonito.</li>
+      <li>Viajar contigo.</li>
+      <li>Reír contigo.</li>
+      <li>Seguir eligiéndote incluso cuando pasen muchos años.</li>
+    </ul>
+  </section>
+
+  <!-- ── CIERRE ─────────────────────────────────────────────────────────────── -->
+  <section id="cierre">
+    <p class="closing-quote" id="closing-text">
+      "Y si me preguntan cómo se ve mi universo…<br>
+      diría que se parece mucho a ti."
+    </p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

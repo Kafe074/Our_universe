@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minijuegos ✦</title>
+  <link rel="icon" type="image/png" href="Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <a href="../../planetarium.html" class="btn-back" onclick="if(window.parent!==window){window.parent.postMessage('closeOverlay','*');return false;}">
+    <svg height="14" width="14" fill="none" viewBox="0 0 24 24" stroke-width="1.8">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+    <span>Planetario</span>
+  </a>
+
+  <!-- ── HUB ── -->
+  <div id="hub" class="screen">
+    <h1 id="hub-title">Nuestro Rincón de Juegos</h1>
+    <p id="hub-sub">Tres juegos para pasar un rato contigo · o con tus recuerdos</p>
+    <div id="hub-cards">
+      <div class="hub-card" data-game="trivia">
+        <span class="hub-icon">🧠</span>
+        <span class="hub-name">Trivia</span>
+        <span class="hub-desc">¿Cuánto recuerdas de nuestra historia?</span>
+      </div>
+      <div class="hub-card" data-game="memorama">
+        <span class="hub-icon">🃏</span>
+        <span class="hub-name">Memorama</span>
+        <span class="hub-desc">Encuentra las parejas de nuestras fotos</span>
+      </div>
+      <div class="hub-card" data-game="puzzle">
+        <span class="hub-icon">🧩</span>
+        <span class="hub-name">Puzzle</span>
+        <span class="hub-desc">Arma nuestra foto pieza por pieza</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TRIVIA ── -->
+  <div id="trivia" class="screen hidden">
+    <div class="game-header">
+      <span class="game-title">🧠 Trivia</span>
+      <button class="btn-hub">← Juegos</button>
+    </div>
+    <div id="trivia-body">
+      <div id="trivia-card">
+        <div id="trivia-progress"></div>
+        <div id="trivia-timer-bar"><div id="trivia-timer-fill"></div></div>
+        <p id="trivia-question"></p>
+        <div id="trivia-options"></div>
+        <p id="trivia-feedback"></p>
+      </div>
+      <div id="trivia-result">
+        <div id="trivia-score-num"></div>
+        <p id="trivia-result-msg"></p>
+        <button class="btn-restart" id="btn-trivia-restart">Jugar otra vez</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MEMORAMA ── -->
+  <div id="memorama" class="screen hidden">
+    <div class="game-header">
+      <span class="game-title">🃏 Memorama</span>
+      <button class="btn-hub">← Juegos</button>
+    </div>
+    <div id="memo-info">
+      <span id="memo-moves">Movimientos: 0</span>
+      <span id="memo-matched">Parejas: 0/8</span>
+    </div>
+    <div id="memo-grid">
+      <div class="memo-board"></div>
+    </div>
+  </div>
+
+  <!-- ── PUZZLE ── -->
+  <div id="puzzle" class="screen hidden">
+    <div class="game-header">
+      <span class="game-title">🧩 Puzzle</span>
+      <button class="btn-hub">← Juegos</button>
+    </div>
+    <div id="puzzle-body">
+      <div id="puzzle-grid"></div>
+      <div id="puzzle-info">
+        <div id="puzzle-preview-wrap" title="Vista previa">
+          <img id="puzzle-preview" src="" alt="Preview" />
+        </div>
+        <span id="puzzle-label" style="font-family:'Cormorant Garamond',serif;font-size:.9rem;font-style:italic;color:rgba(120,232,216,.7);"></span>
+        <span id="puzzle-moves">Movimientos: 0</span>
+        <!-- Navegación de fotos -->
+        <div style="display:flex;gap:8px;">
+          <button onclick="Puzzle.prevPhoto()" class="btn-hub" style="padding:6px 12px;font-size:.62rem;">← Anterior</button>
+          <button onclick="Puzzle.nextPhoto()" class="btn-hub" style="padding:6px 12px;font-size:.62rem;">Siguiente →</button>
+        </div>
+        <!-- Dificultad -->
+        <div style="display:flex;gap:6px;margin-top:2px;">
+          <button class="size-btn" data-size="3" onclick="Puzzle.setSize(3)">3×3</button>
+          <button class="size-btn" data-size="4" onclick="Puzzle.setSize(4)">4×4</button>
+          <button class="size-btn" data-size="5" onclick="Puzzle.setSize(5)">5×5</button>
+        </div>
+        <span id="puzzle-hint"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WIN OVERLAY compartido ── -->
+  <div id="win-overlay" class="hidden">
+    <div id="win-card">
+      <div id="win-title"></div>
+      <p id="win-msg"></p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <button class="btn-restart" id="btn-win-restart">Jugar otra vez</button>
+        <button class="btn-restart" id="btn-win-hub" style="background:rgba(120,232,216,.12);border:1px solid rgba(120,232,216,.3)">Ver otros juegos</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="trivia.js"></script>
+  <script src="games.js"></script>
+</body>
+</html>
