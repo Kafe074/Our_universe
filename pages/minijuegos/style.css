@@ -106,14 +106,14 @@ body::after {
   color:var(--teal); text-shadow:0 0 18px var(--glowS);
 }
 
-.btn-hub {
+.btn-hub, .btn-pnav {
   background:rgba(120,232,216,.06); border:1px solid rgba(120,232,216,.25);
   border-radius:50px; color:var(--teal);
   font-family:'Raleway',sans-serif; font-size:.65rem;
   letter-spacing:.16em; text-transform:uppercase;
   padding:7px 16px; cursor:pointer; transition:all .3s;
 }
-.btn-hub:hover { background:rgba(120,232,216,.18); box-shadow:0 0 16px var(--glowS); }
+.btn-hub:hover, .btn-pnav:hover { background:rgba(120,232,216,.18); box-shadow:0 0 16px var(--glowS); }
 
 /* ─── TRIVIA ────────────────────────────────────────────────────────────────── */
 #trivia { flex:1; overflow:hidden; }
@@ -213,8 +213,9 @@ body::after {
 }
 
 #memo-grid {
-  flex:1; display:flex; align-items:center; justify-content:center;
+  flex:1; display:flex; align-items:flex-start; justify-content:center;
   padding:14px 20px 20px;
+  overflow-y:auto;
 }
 
 .memo-board {
@@ -374,9 +375,23 @@ body::after {
 
 /* ─── RESPONSIVE ────────────────────────────────────────────────────────────── */
 @media (max-width:600px) {
-  .memo-board { grid-template-columns:repeat(4,1fr); gap:7px; }
+  #hub { padding:60px 16px 16px; }
+  #hub-title { font-size:clamp(2rem,8vw,3rem); }
+  .hub-card { width:clamp(140px,40vw,200px); padding:24px 16px 20px; }
+
+  .memo-board { grid-template-columns:repeat(4,1fr); gap:6px; max-width:100%; }
+  .memo-card { aspect-ratio:1; }
+
   #trivia-options { grid-template-columns:1fr; }
-  #puzzle-body { flex-direction:column; gap:12px; }
-  #puzzle-info { flex-direction:row; max-width:none; align-items:center; }
-  #puzzle-grid { width:min(340px,90vmin); height:min(340px,90vmin); }
+  #trivia-card { padding:24px 18px; }
+
+  #puzzle-body { flex-direction:column; align-items:center; gap:10px; overflow-y:auto; }
+  #puzzle-grid { width:min(320px,88vmin); height:min(320px,88vmin); }
+  #puzzle-info { flex-direction:row; flex-wrap:wrap; max-width:100%; align-items:center; justify-content:center; gap:8px; }
+  #puzzle-preview-wrap { width:72px; height:72px; }
+}
+
+@media (max-width:400px) {
+  .memo-board { gap:4px; }
+  #memo-info { font-size:.62rem; gap:16px; }
 }

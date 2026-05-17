@@ -131,6 +131,10 @@ body {
 .cnode:nth-child(6)  { animation-delay: 1.5s; }
 .cnode:nth-child(7)  { animation-delay: 1.8s; }
 .cnode:nth-child(8)  { animation-delay: 2.1s; }
+.cnode:nth-child(9)  { animation-delay: 2.4s; }
+.cnode:nth-child(10) { animation-delay: 2.7s; }
+.cnode:nth-child(11) { animation-delay: 3.0s; }
+.cnode:nth-child(12) { animation-delay: 3.3s; }
 
 @keyframes nodeVibrate {
   0%,100% { transform: translate(-50%,-50%) scale(1)   rotate(0deg);  }
@@ -163,6 +167,13 @@ body {
 .cnode:nth-child(3)::after  { animation-delay: .6s; }
 .cnode:nth-child(4)::after  { animation-delay: .9s; }
 .cnode:nth-child(5)::after  { animation-delay: 1.2s; }
+.cnode:nth-child(6)::after  { animation-delay: 1.5s; }
+.cnode:nth-child(7)::after  { animation-delay: 1.8s; }
+.cnode:nth-child(8)::after  { animation-delay: 2.1s; }
+.cnode:nth-child(9)::after  { animation-delay: 2.4s; }
+.cnode:nth-child(10)::after { animation-delay: 2.7s; }
+.cnode:nth-child(11)::after { animation-delay: 3.0s; }
+.cnode:nth-child(12)::after { animation-delay: 3.3s; }
 
 @keyframes ringPulse {
   0%,100% { transform: scale(1);   opacity: .5; }
@@ -209,4 +220,39 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.5rem; font-weight: 300; font-style: italic;
   color: var(--text); line-height: 1.7; letter-spacing: .03em;
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  #message-wrap {
+    left: 4vw;
+    top: auto;
+    bottom: 0;
+    width: 92vw;
+    max-height: 38vh;
+    overflow-y: auto;
+    background: rgba(6,5,12,.72);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(232,192,112,.15);
+    padding: 16px 18px 20px;
+    border-radius: 10px 10px 0 0;
+  }
+  .msg-eyebrow { font-size: 1.6rem; margin-bottom: .5rem; }
+  #code { font-size: .92rem; line-height: 1.7; }
+
+  .btn-back {
+    top: 16px; left: 16px;
+    padding: 8px 16px; font-size: .65rem;
+  }
+
+  .verse-card { padding: 44px 24px 32px; }
+  #verse-text { font-size: 1.2rem; }
+
+  .cnode { width: 44px; height: 44px; }
+  .cnode::before { font-size: 24px; }
+}
+
+@media (max-width: 480px) {
+  #message-wrap { max-height: 32vh; }
+  #code { font-size: .84rem; }
 }
